@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b57d0">
+<title>CorebiQ · GSTR-1 JSON Converter</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="index.html" aria-label="CorebiQ home">
+      <span class="brand-mark">Q</span><span><b>CorebiQ</b><small>GST RETURN ONLINE</small></span>
+    </a>
+    <div class="side-label">WORKSPACE</div>
+    <a class="nav-item active" href="index.html"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+    <div class="side-label">GSTR-1 MODULES</div>
+    <a class="nav-item" href="pages/b2b.html"><i data-lucide="building-2"></i><span>B2B Invoices</span><em>01</em></a>
+    <a class="nav-item" href="pages/cdnr.html"><i data-lucide="file-minus"></i><span>B2B Credit Notes</span><em>02</em></a>
+    <a class="nav-item" href="pages/b2cs.html"><i data-lucide="receipt"></i><span>B2C Small</span><em>03</em></a>
+    <a class="nav-item" href="pages/eco.html"><i data-lucide="shopping-cart"></i><span>E-commerce</span><em>04</em></a>
+    <a class="nav-item" href="pages/exempt.html"><i data-lucide="file-check"></i><span>Exempted</span><em>05</em></a>
+    <a class="nav-item" href="pages/export.html"><i data-lucide="globe"></i><span>Export</span><em>06</em></a>
+    <a class="nav-item" href="pages/doc.html"><i data-lucide="files"></i><span>Documents</span><em>07</em></a>
+    <a class="nav-item" href="pages/hsn-b2b.html"><i data-lucide="list-tree"></i><span>HSN B2B</span><em>08</em></a>
+    <div class="sidebar-bottom"><span class="status-dot"></span> Local workspace <small>Data stays in this browser</small></div>
+  </aside>
+  <main class="main-area">
+    <header class="topbar">
+      <button class="icon-button menu-toggle" id="menuToggle" aria-label="Toggle menu"><i data-lucide="menu"></i></button>
+      <div class="breadcrumbs">Workspace <span>/</span> Dashboard</div>
+      <div class="top-actions"><span class="secure"><i data-lucide="shield-check"></i> Local-first</span><button class="avatar" title="CorebiQ">C</button></div>
+    </header>
+    <section class="content">
+      <div class="welcome-row">
+        <div><div class="eyebrow">GST RETURN ONLINE</div><h1>GSTR-1 workspace</h1><p>Prepare your return section by section, then validate and generate JSON.</p></div>
+        <div class="version-pill"><span class="status-dot"></span> Draft workspace</div>
+      </div>
+      <section class="panel return-panel">
+        <div class="panel-heading"><div><h2>Return details</h2><p>Enter the supplier and tax period before working on your sections.</p></div><span class="step-badge">STEP 01</span></div>
+        <form id="returnForm" class="return-grid">
+          <label class="field"><span>GSTIN <b>*</b></span><input id="gstin" name="gstin" maxlength="15" placeholder="e.g. 32AANFH1221P1ZD" autocomplete="off" required><small>15-character GST Identification Number</small></label>
+          <label class="field"><span>Return period <b>*</b></span><input id="period" name="period" maxlength="6" inputmode="numeric" placeholder="MMYYYY · e.g. 012026" required><small>Enter month and year as MMYYYY</small></label>
+          <div class="form-action"><button class="primary-button" type="submit">Save return details <i data-lucide="arrow-right"></i></button><div id="formMessage" role="status"></div></div>
+        </form>
+      </section>
+      <div class="section-heading"><div><h2>Your GSTR-1 sections</h2><p>Eight focused modules · select a card to open its page</p></div><span class="count-pill">08 MODULES</span></div>
+      <div class="module-grid">
+        <a class="module-card" href="pages/b2b.html"><span class="module-icon blue"><i data-lucide="building-2"></i></span><span class="module-number">01</span><h3>B2B Invoices</h3><p>Registered recipient outward supplies</p><span class="module-footer">Open module <i data-lucide="arrow-up-right"></i></span></a>
+        <a class="module-card" href="pages/cdnr.html"><span class="module-icon violet"><i data-lucide="file-minus"></i></span><span class="module-number">02</span><h3>B2B Credit Notes</h3><p>Registered credit/debit notes</p><span class="module-footer">Open module <i data-lucide="arrow-up-right"></i></span></a>
+        <a class="module-card" href="pages/b2cs.html"><span class="module-icon cyan"><i data-lucide="receipt"></i></span><span class="module-number">03</span><h3>B2C Small</h3><p>Other taxable outward supplies</p><span class="module-footer">Open module <i data-lucide="arrow-up-right"></i></span></a>
+        <a class="module-card" href="pages/eco.html"><span class="module-icon orange"><i data-lucide="shopping-cart"></i></span><span class="module-number">04</span><h3>E-commerce</h3><p>E-commerce supply details</p><span class="module-footer">Open module <i data-lucide="arrow-up-right"></i></span></a>
+        <a class="module-card" href="pages/exempt.html"><span class="module-icon green"><i data-lucide="file-check"></i></span><span class="module-number">05</span><h3>Exempted Supplies</h3><p>Nil-rated, exempt and non-GST</p><span class="module-footer">Open module <i data-lucide="arrow-up-right"></i></span></a>
+        <a class="module-card" href="pages/export.html"><span class="module-icon indigo"><i data-lucide="globe"></i></span><span class="module-number">06</span><h3>Export Invoices</h3><p>Export supply details</p><span class="module-footer">Open module <i data-lucide="arrow-up-right"></i></span></a>
+        <a class="module-card" href="pages/doc.html"><span class="module-icon rose"><i data-lucide="files"></i></span><span class="module-number">07</span><h3>Documents</h3><p>Document issue summary</p><span class="module-footer">Open module <i data-lucide="arrow-up-right"></i></span></a>
+        <a class="module-card" href="pages/hsn-b2b.html"><span class="module-icon teal"><i data-lucide="list-tree"></i></span><span class="module-number">08</span><h3>HSN B2B</h3><p>HSN-wise summary data</p><span class="module-footer">Open module <i data-lucide="arrow-up-right"></i></span></a>
+      </div>
+      <section class="panel" style="padding:20px;margin-top:24px"><div class="panel-heading"><div><h2>Generate combined GSTR-1 JSON</h2><p>Combines saved data from your eight modules into one JSON file. Only saved rows are included.</p></div><span class="step-badge">EXPORT</span></div><div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:14px"><button id="generateJson" class="primary-button" type="button"><i data-lucide="file-json"></i> Generate & download JSON</button><span id="jsonMessage" role="status" style="font-size:12px;color:#657387"></span></div></section><section class="panel next-panel"><span class="next-icon"><i data-lucide="file-json"></i></span><div><h3>JSON export</h3><p>The final generator will combine completed modules into one GST Offline Tool-compatible JSON file after schema validation.</p></div><span class="coming-soon">INTEGRATION STAGE</span></section>
+      <footer>CorebiQ · Building Intelligent Businesses <span>GSTR-1 helper workspace · Validate before filing</span></footer>
+    </section>
+  </main>
+</div>
+<script src="js/app.js"></script><script src="js/json-generator.js"></script>
+<script>lucide.createIcons();</script>
+</body></html>
